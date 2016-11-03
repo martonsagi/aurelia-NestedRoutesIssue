@@ -1,4 +1,4 @@
-// import {Router, RouterConfiguration} from 'aurelia-router';
+import {Router, RouterConfiguration} from 'aurelia-router';
 import {inject} from 'aurelia-framework';
 import { Item } from './item';
 
@@ -8,8 +8,9 @@ export class Secondary2 {
         this.items.push(new Item(2, "Item 2"));
     }
 
-    //router: Router;
-    items: Item[];
+    router: Router;
+
+    items: Item[] = [];
     currentItem: Item;
 
     private nextId = 3;
@@ -17,15 +18,15 @@ export class Secondary2 {
         var id = this.nextId++;
         this.items.push(new Item(id, `Item ${id}`));
     }
-    // selectItem(item: Item) {
-    //     this.currentItem = item;
-    // }
+    selectItem(item: Item) {
+        this.currentItem = item;
+    }
 
-    // configureRouter(config: RouterConfiguration, router: Router){
-    //     config.map([
-    //         { route: '',          moduleId: 'no-item',   title: 'Select an item'},
-    //         { route: 'item/:id',  moduleId: 'item-detail', name:'item' }
-    //     ]);
-    //     this.router = router;
-    // }
+    configureRouter(config: RouterConfiguration, router: Router){
+        config.map([
+            { route: '',          moduleId: 'no-item',   title: 'Select an item'},
+            { route: 'item/:id',  moduleId: 'item-detail', name:'item' }
+        ]);
+        this.router = router;
+    }
 }
