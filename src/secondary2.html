@@ -1,5 +1,13 @@
 <template>
   <h3>Secondary 2</h3>
-  <p>No child pages defined.</p>
-  TODO!!
+  <!--<button click.bind="addItem">Add Item</button>-->
+  <h4>Items</h4>
+  <ul>
+    <li repeat.for="item of items">
+      ${item.description}
+      <!--<a class="${item == $parent.currentItem ? 'active' : ''}" href.bind="row.href">${item.description}</a>-->
+    </li>
+  </ul>
+  <hr>
+  <!--<router-view></router-view>-->
 </template>
