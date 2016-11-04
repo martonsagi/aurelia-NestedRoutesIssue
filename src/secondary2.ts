@@ -4,8 +4,6 @@ import { Item } from './item';
 
 export class Secondary2 {
     constructor() {
-        this.items.push(new Item(1, "Item 1"));
-        this.items.push(new Item(2, "Item 2"));
     }
 
     router: Router;
@@ -28,5 +26,10 @@ export class Secondary2 {
             { route: 'item/:id',  moduleId: 'item-detail', name:'item' }
         ]);
         this.router = router;
+    }
+
+    attached() {
+      this.items.push(new Item(1, "Item 1"));
+      this.items.push(new Item(2, "Item 2"));
     }
 }
