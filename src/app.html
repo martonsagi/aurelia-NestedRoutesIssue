@@ -4,9 +4,22 @@
   </style>
   <h1>Root Navigation</h1>
   <ul>
-    <li repeat.for="row of router.navigation">
-      <a class="${row.isActive ? 'active' : ''}" href.bind="row.href">${row.title}</a>
-    </li>
+    <li>
+      <a class="${router.currentInstruction.fragment.startsWith('/primary1') ? 'active' : ''}" route-href="route: primary1">Primary 1</a>
+      </li>
+    <li>
+      <a class="${router.currentInstruction.fragment.startsWith('/primary2') ? 'active' : ''}" route-href="route: primary2">Primary 2</a>
+      </li>
+  </ul>
+  <ul if.bind="router.currentInstruction.fragment.startsWith('/primary1')">
+  </ul>
+  <ul if.bind="router.currentInstruction.fragment.startsWith('/primary2')">
+    <li>
+      <a class="${router.currentInstruction.fragment.startsWith('/primary2/secondary1') ? 'active' : ''}" route-href="route: secondary1">Secondary 1</a>
+      </li>
+    <li>
+      <a class="${router.currentInstruction.fragment.startsWith('/primary2/secondary2') ? 'active' : ''}" route-href="route: secondary2">Secondary 2</a>
+      </li>
   </ul>
   <hr>
   <router-view></router-view>
